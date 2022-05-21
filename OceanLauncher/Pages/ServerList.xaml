@@ -25,7 +25,8 @@
                     <Border VerticalAlignment="Center" HorizontalAlignment="Right" Background="#FF2B2B2B" Margin="10 0 40 0" Padding="6 4" CornerRadius="3">
                         <TextBlock Text="Close" Foreground="#FF9B9B9B"/>
                     </Border>
-                    <Button Width="32" HorizontalAlignment="Right" Background="Transparent" BorderThickness="0" Foreground="White" >
+                    <Button Width="32" HorizontalAlignment="Right" Style="{StaticResource ButtonStyle1}" Foreground="White" 
+                            Command="{Binding GoHome}">
                         <TextBlock FontSize="28" VerticalAlignment="Center" FontWeight="Light" Margin="0 -3 0 0 ">
                             ×
                         </TextBlock>

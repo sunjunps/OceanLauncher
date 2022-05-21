@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.Toolkit.Mvvm.ComponentModel;
+using Microsoft.Toolkit.Mvvm.Input;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +22,24 @@ namespace OceanLauncher.Pages
     /// </summary>
     public partial class ServerList : Page
     {
+        ServerListVM vm = new ServerListVM();
         public ServerList()
         {
             InitializeComponent();
+            DataContext = vm;
+        }
+    }
+
+    public class ServerListVM : ObservableObject
+    {
+        public ICommand GoHome { get; set; }
+
+        public ServerListVM()
+        {
+            GoHome = new RelayCommand(() =>
+            {
+                GlobalProps.NavigateTo(new Home());
+            });
         }
     }
 }

@@ -4,6 +4,11 @@
              xmlns:local="clr-namespace:OceanLauncher"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="IconBtn.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <FontFamily x:Key="icon">/Fonts/#Segoe Fluent Icons</FontFamily>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

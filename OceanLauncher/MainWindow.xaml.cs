@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Microsoft.Toolkit.Mvvm.ComponentModel;
+using Microsoft.Toolkit.Mvvm.Input;
+using OceanLauncher.Pages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +23,12 @@ namespace OceanLauncher
     /// </summary>
     public partial class MainWindow : Window
     {
+        MainVM vm = new MainVM();
         public MainWindow()
         {
             InitializeComponent();
+            this.DataContext = vm;
+            GlobalProps.NavigateTo = this.NavigateTo;
         }
 
 
@@ -30,5 +36,28 @@ namespace OceanLauncher
         {
             DragMove();
         }
+
+        public void NavigateTo(Page pg)
+        {
+            frame.Navigate(pg);
+        }
+
+
     }
+
+    public class MainVM : ObservableObject
+    {
+        public ICommand OpenServerList { get; set; }
+
+        public MainVM()
+        {
+            OpenServerList = new RelayCommand(() =>
+              {
+                  GlobalProps.NavigateTo(new ServerList());
+              });
+        }
+    }
+
+
+
 }
