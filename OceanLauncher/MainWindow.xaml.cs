@@ -48,7 +48,15 @@ namespace OceanLauncher
             }
             catch
             {
-                NavigateTo(new SettingPage());
+            }
+            finally
+            {
+                if (cfg == null)
+                {
+                    NavigateTo(new SettingPage());
+
+                }
+                cfg = new SettingPage.CFG();
             }
 
 
