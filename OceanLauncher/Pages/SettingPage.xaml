@@ -6,13 +6,30 @@
       xmlns:local="clr-namespace:OceanLauncher.Pages"
       mc:Ignorable="d"       Height="600" Width="1000"
       Title="SettingPage">
+    <Page.Resources>
+        <Storyboard x:Key="SideBarLoad">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="border">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0.3"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="border">
+                <EasingThicknessKeyFrame KeyTime="0" Value="300,0,0,0"/>
+                <EasingThicknessKeyFrame KeyTime="0:0:0.2" Value="0"/>
+            </ThicknessAnimationUsingKeyFrames>
+        </Storyboard>
+    </Page.Resources>
+    <Page.Triggers>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+            <BeginStoryboard Storyboard="{StaticResource SideBarLoad}"/>
+        </EventTrigger>
+    </Page.Triggers>
     <Grid Background="#70000000">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="3*"/>
             <ColumnDefinition Width="2*"/>
         </Grid.ColumnDefinitions>
 
-        <Border Grid.Column="1" Background="#FF212121" CornerRadius="10">
+        <Border Grid.Column="1" Background="#FF212121" CornerRadius="10" x:Name="border">
             <Grid  Margin="20 10 15 20">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="32"/>

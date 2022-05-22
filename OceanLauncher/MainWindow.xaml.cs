@@ -5,6 +5,7 @@ using OceanLauncher.Pages;
 using OceanLauncher.Utils;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +15,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -108,14 +110,24 @@ namespace OceanLauncher
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            SettingProvider.Save();
-            if (GlobalProps.controller!=null)
-            {
-                GlobalProps.controller.Stop();
+            //SettingProvider.Save();
+            //if (GlobalProps.controller!=null)
+            //{
+            //    GlobalProps.controller.Stop();
 
-            }
-            Environment.Exit(0);
+            //}
+            CloseAsync();
+            //Close();
         }
+        private async Task CloseAsync()
+        {
+            Storyboard closeStoryboard = (Storyboard)this.FindResource("WindowClose");
+            closeStoryboard.Begin();
+            await Task.Delay(200);
+            Application.Current.Shutdown();
+        }
+
+
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
@@ -149,6 +161,40 @@ namespace OceanLauncher
                 btnIcon.Text = "\xe768";
 
             }
+
+        }
+
+        private void Border_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            //if (GlobalProps.controller == null)
+            //{
+            //GlobalProps.controller = new GenshinImpact_Lanucher.Utils.ProxyController(cfg.Port, vm.ServerInfo.IP);
+
+
+            //GlobalProps.controller.Start();
+
+
+            GameHelper helper = new GameHelper();
+            helper.Start();
+
+            //btnText.Text = "游戏已启动";
+            //btnIcon.Text = "\xe71a";
+            //}
+            //else
+            //{
+            //    GlobalProps.controller.Stop();
+            //    GlobalProps.controller = null;
+
+            //    btnText.Text = "加入游戏";
+            //    btnIcon.Text = "\xe768";
+
+            //}
+        }
+
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            Process.Start("https://github.com/SwetyCore/OceanLauncher");
 
         }
     }

@@ -24,7 +24,14 @@ namespace OceanLauncher.Utils
             catch
             {
                 MessageBox.Show("无效的启动配置，请检查设置！");
-                cfg = new SettingPage.CFG();
+            }
+            finally
+            {
+                if (cfg == null)
+                {
+                    cfg = new SettingPage.CFG();
+
+                }
             }
         }
 
