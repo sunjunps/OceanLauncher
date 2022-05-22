@@ -1,12 +1,20 @@
 ﻿<Application x:Class="OceanLauncher.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:OceanLauncher"
+             xmlns:local="clr-namespace:OceanLauncher" xmlns:converters="clr-namespace:OceanLauncher.Converters"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="IconBtn.xaml"/>
+                <ResourceDictionary Source="TextBtn.xaml"/>
+                <ResourceDictionary Source="TextBox1.xaml"/>
+                <ResourceDictionary Source="ListView1.xaml"/>
+
+                <ResourceDictionary>
+                    <converters:TimeOut2Color x:Key="TimeOut2Color"/>
+
+                </ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
             <FontFamily x:Key="icon">/Fonts/#Segoe Fluent Icons</FontFamily>
         </ResourceDictionary>

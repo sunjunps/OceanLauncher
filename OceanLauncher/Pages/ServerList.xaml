@@ -5,7 +5,11 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:OceanLauncher.Pages"
       mc:Ignorable="d" 
+      x:Name="root"
       Height="600" Width="1000"
+      xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+      Unloaded="Page_Unloaded"
+      Loaded="root_Loaded"
       Title="ServerList">
     <Grid Background="#70000000">
         <Grid.ColumnDefinitions>
@@ -19,7 +23,7 @@
                     <RowDefinition Height="32"/>
                     <RowDefinition Height="30"/>
                     <RowDefinition/>
-                    <RowDefinition Height="56"/>
+                    <RowDefinition Height="60"/>
                 </Grid.RowDefinitions>
                 <Grid>
                     <Border VerticalAlignment="Center" HorizontalAlignment="Right" Background="#FF2B2B2B" Margin="10 0 40 0" Padding="6 4" CornerRadius="3">
@@ -35,41 +39,63 @@
                 <TextBlock Grid.Row="1" VerticalAlignment="Bottom" FontSize="20" Foreground="White" Margin="5 0">
                     Servers
                 </TextBlock>
-                <ListView Grid.Row="2" Background="Transparent" BorderThickness="0">
-                    <ListViewItem BorderThickness="0" Margin="0 5" x:Name="lvi" HorizontalAlignment="Center">
-                        <Border Height="60" BorderThickness="0" BorderBrush="Gray" CornerRadius="10" Width="355" Padding="10 6" Background="#FF242424">
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="20"/>
-                                    <ColumnDefinition/>
-                                    <ColumnDefinition Width="100"/>
-                                </Grid.ColumnDefinitions>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition />
-                                    <RowDefinition />
-                                </Grid.RowDefinitions>
-                                <Ellipse  Fill="#FF05BF05" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="6" Height="6"/>
-                                <TextBlock Grid.Column="1" Text="YuiServer" Foreground="White" FontSize="18" VerticalAlignment="Bottom" Padding="10,0,0,0"/>
-                                <TextBlock Grid.Column="1" Grid.Row="1" Text="2.6.0" Foreground="Gray" Padding="10,0,0,0" VerticalAlignment="Center"/>
-                                <StackPanel Grid.RowSpan="2" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Right"
+                <ListView Grid.Row="2" Background="Transparent" BorderThickness="0" x:Name="lv" SelectionMode="Single" ItemsSource="{Binding ServerList}">
+                    <ListView.Resources>
+                        <Style TargetType="ListViewItem" BasedOn="{StaticResource ListViewItemStyle1}">
+
+                        </Style>
+                    </ListView.Resources>
+                    <ListView.ContextMenu >
+                        <ContextMenu  >
+                            <MenuItem Header="删除" Icon="🗑️"  Click="MenuItem_Click"  Command="{Binding Delete}"/>
+                        </ContextMenu>
+
+                    </ListView.ContextMenu>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Border Height="60" BorderThickness="0" BorderBrush="Gray" CornerRadius="10" Width="330" Padding="0 6" Background="Transparent">
+                                <Border.InputBindings>
+                                    <MouseBinding Command="{Binding DataContext.Delete, ElementName=root}" CommandParameter="{Binding }" MouseAction="LeftDoubleClick" />
+                                </Border.InputBindings>
+                                <!--<Border.ContextMenu>
+                                    <ContextMenu>
+                                        <MenuItem Command="{Binding ElementName=root,Path=DataContext.Delete}" 
+                                                      CommandParameter="{Binding }">删除</MenuItem>
+                                    </ContextMenu>
+                                </Border.ContextMenu>-->
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="20"/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition Width="100"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition />
+                                        <RowDefinition />
+                                    </Grid.RowDefinitions>
+                                    <Ellipse  Fill="{Binding timeout,Converter={StaticResource TimeOut2Color}}" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="6" Height="6"/>
+                                    <TextBlock Grid.Column="1" Text="{Binding Name}" Foreground="White" FontSize="18" VerticalAlignment="Bottom" Padding="10,0,0,0"/>
+                                    <TextBlock Grid.Column="1" Grid.Row="1" Text="2.6.0" Foreground="Gray" Padding="10,0,0,0" VerticalAlignment="Center"/>
+                                    <StackPanel x:Name="playerCount" Grid.RowSpan="2" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Right"
                                             Orientation="Horizontal">
-                                    <TextBlock Text="17" Foreground="Gray" FontSize="12"/>
-                                    <TextBlock Text="icon" Foreground="Gray" FontSize="12"/>
-                                </StackPanel>
-                            </Grid>
-                        </Border>
-                    </ListViewItem>
+                                        <TextBlock Text="{Binding players}" Foreground="Gray" FontSize="12" VerticalAlignment="Center"/>
+                                        <TextBlock FontFamily="{StaticResource icon}" Text="&#xe716;" Foreground="Gray" FontSize="17" Margin="5"/>
+                                    </StackPanel>
+                                    <StackPanel x:Name="edit" Grid.RowSpan="2" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Right"
+                                            Orientation="Horizontal">
+                                        <Button Style="{StaticResource ButtonStyle1}" Visibility="Collapsed">delete</Button>
+                                        
+                                    </StackPanel>
+                                    
+                                </Grid>
+                            </Border>
+
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
                 </ListView>
-                <Button Background="Transparent" BorderThickness="0" Grid.Row="3" x:Name="addBtn">
-                    <Border Background="#FF2B2B2B" CornerRadius="30" Height="{Binding ElementName=addBtn,Path=ActualHeight}" Margin="-10"
-                            Width="{Binding ElementName=addBtn,Path=ActualWidth}">
-                        <Grid>
-                            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontSize="16">
-                                <Run Text="＋"/>
-                                <Run Text="Add a server"/>
-                            </TextBlock>
-                        </Grid>
-                    </Border>
+                <Button Background="#FF2B2B2B" BorderThickness="0" Grid.Row="3" x:Name="addBtn" Style="{DynamicResource ButtonStyle2}" 
+                        FontSize="22" Foreground="White" Click="addBtn_Click">
+                    + Add a Server
                 </Button>
             </Grid>
         </Border>
