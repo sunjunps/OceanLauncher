@@ -24,9 +24,9 @@
 
     <Border CornerRadius="10" Background="#70000000">
         <Grid>
-            <Border Height="400" Width="600" Background="#FF171717"  CornerRadius="10" Padding="20">
+            <Border Height="400" Width="600" Background="#f8f8ff"  CornerRadius="10" Padding="20">
                 <StackPanel>
-                    <Label FontSize="28" Margin="0 0 0 10" Foreground="White">信息编辑</Label>
+                    <Label FontSize="28" Margin="0 0 0 10" Foreground="Black" >信息编辑</Label>
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="140"/>
@@ -52,7 +52,7 @@
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
                         <Button Style="{StaticResource ButtonStyle2}" BorderThickness="0" HorizontalAlignment="Right" Margin="20 0" Click="Button_Click_1"
-                                Background="#3f88FF" Foreground="White" Height="60" Width="180" FontSize="20">
+                                Background="#677eff" Foreground="White" Height="60" Width="180" FontSize="20">
                             保存
                         </Button>
                         <Button Style="{StaticResource ButtonStyle2}" Margin="20 0" BorderThickness="0" Background="#FF2B2B2B" Grid.Column="1" Foreground="White" Height="60" Width="180" FontSize="20"

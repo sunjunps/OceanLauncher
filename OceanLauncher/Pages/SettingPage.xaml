@@ -29,38 +29,39 @@
             <ColumnDefinition Width="2*"/>
         </Grid.ColumnDefinitions>
 
-        <Border Grid.Column="1" Background="#FF212121" CornerRadius="10" x:Name="border">
+        <Border Grid.Column="1" Background="#f8f8ff" CornerRadius="10" x:Name="border">
             <Grid  Margin="20 10 15 20">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="32"/>
-                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="50"/>
                     <RowDefinition/>
                     <RowDefinition Height="56"/>
                 </Grid.RowDefinitions>
                 <Grid>
-                    <Border VerticalAlignment="Center" HorizontalAlignment="Right" Background="#FF2B2B2B" Margin="10 0 40 0" Padding="6 4" CornerRadius="3">
+                    <!--<Border VerticalAlignment="Center" HorizontalAlignment="Right" Background="#FF2B2B2B" Margin="10 0 40 0" Padding="6 4" CornerRadius="3">
                         <TextBlock Text="Close" Foreground="#FF9B9B9B"/>
-                    </Border>
-                    <Button Width="32" HorizontalAlignment="Right" Style="{StaticResource ButtonStyle1}" Foreground="White" 
+                    </Border>-->
+                    <Button Width="32" HorizontalAlignment="Right" Style="{StaticResource ButtonStyle1}" Foreground="Black" 
                             Command="{Binding GoHome}">
                         <TextBlock FontSize="28" VerticalAlignment="Center" FontWeight="Light" Margin="0 -3 0 0 ">
                             ×
                         </TextBlock>
                     </Button>
                 </Grid>
-                <TextBlock Grid.Row="1" VerticalAlignment="Bottom" FontSize="20" Foreground="White" Margin="5 0">
+                <TextBlock Grid.Row="1" VerticalAlignment="Bottom" FontSize="40" Foreground="Black" Margin="5 0">
                     Settings
                 </TextBlock>
-                <StackPanel Grid.Row="2" Margin="0 20">
+                <StackPanel Grid.Row="2" Margin="0 00">
                     <StackPanel.Resources>
                         <Style TargetType="Label">
-                            <Setter Property="Foreground" Value="white"/>
+                            <Setter Property="Foreground" Value="Gray"/>
                             <Setter Property="FontSize" Value="16"/>
+                            <Setter Property="FontWeight" Value="Light"/>
                             <Setter Property="Margin" Value="0 16 0 0"/>
                         </Style>
                     </StackPanel.Resources>
                     <Label>游戏路径</Label>
-                    <TextBox FontSize="24" Style="{DynamicResource TextBoxStyle1}" Padding="5" BorderThickness="2" Text="{Binding Path}">
+                    <TextBox FontSize="24" Style="{DynamicResource TextBoxStyle1}"  Padding="5" BorderThickness="2" Text="{Binding Path}">
 
                     </TextBox>
                     <Label>窗口大小</Label>
@@ -88,7 +89,7 @@
 
                     </TextBox>
                 </StackPanel>
-                <Button Background="#FF2B2B2B" BorderThickness="0" Grid.Row="3" Style="{StaticResource ButtonStyle2}" FontSize="20" Foreground="White" Click="Button_Click">
+                <Button Background="#677eff" BorderThickness="0" Grid.Row="3" Style="{StaticResource ButtonStyle2}" FontSize="20" Foreground="White" Click="Button_Click">
                     Save Settings
                 </Button>
             </Grid>

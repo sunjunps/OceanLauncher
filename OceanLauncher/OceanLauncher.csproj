@@ -185,6 +185,9 @@
     <Content Include="Resources\cover.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Resources\github.png" />
+    <Resource Include="Resources\logo.png" />
+    <Resource Include="Resources\qq.png" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

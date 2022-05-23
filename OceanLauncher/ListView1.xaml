@@ -18,7 +18,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ListViewItem}">
-                    <Border x:Name="Bd" CornerRadius="10" Margin="0 4" Background="#FF282828" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1.8"  Padding="{TemplateBinding Padding}" SnapsToDevicePixels="true">
+                    <Border x:Name="Bd" CornerRadius="10" Margin="0 4" Background="#fdfdff" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1.8"  Padding="{TemplateBinding Padding}" SnapsToDevicePixels="true">
                         <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
                     </Border>
                     <ControlTemplate.Triggers>
@@ -26,15 +26,15 @@
                             <MultiTrigger.Conditions>
                                 <Condition Property="IsMouseOver" Value="True"/>
                             </MultiTrigger.Conditions>
-                            <Setter Property="Background" TargetName="Bd" Value="#FF242424"/>
-                            <Setter Property="BorderBrush" TargetName="Bd" Value="Gray"/>
+                            <!--<Setter Property="Background" TargetName="Bd" Value="#FF242424"/>-->
+                            <Setter Property="BorderBrush" TargetName="Bd" Value="#30000000"/>
                         </MultiTrigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
                                 <Condition Property="Selector.IsSelectionActive" Value="False"/>
                                 <Condition Property="IsSelected" Value="True"/>
                             </MultiTrigger.Conditions>
-                            <Setter Property="Background" TargetName="Bd" Value="#FF242424"/>
+                            <!--<Setter Property="Background" TargetName="Bd" Value="#FF242424"/>-->
                             <Setter Property="BorderBrush" TargetName="Bd" Value="#3f88FF"/>
                         </MultiTrigger>
                         <MultiTrigger>
@@ -42,7 +42,7 @@
                                 <Condition Property="Selector.IsSelectionActive" Value="True"/>
                                 <Condition Property="IsSelected" Value="True"/>
                             </MultiTrigger.Conditions>
-                            <Setter Property="Background" TargetName="Bd" Value="#FF242424"/>
+                            <!--<Setter Property="Background" TargetName="Bd" Value="#FF242424"/>-->
                             <Setter Property="BorderBrush" TargetName="Bd" Value="#3f88FF"/>
                         </MultiTrigger>
                         <Trigger Property="IsEnabled" Value="False">

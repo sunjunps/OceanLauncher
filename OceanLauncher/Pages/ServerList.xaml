@@ -34,27 +34,27 @@
             <ColumnDefinition Width="2*"/>
         </Grid.ColumnDefinitions>
 
-        <Border x:Name="border" Grid.Column="1" Background="#FF212121" Width="400">
+        <Border x:Name="border" Grid.Column="1" Background="#f8f8ff" Width="400">
             <Grid  Margin="20 10 15 20">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="32"/>
-                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="50"/>
                     <RowDefinition/>
                     <RowDefinition Height="60"/>
                 </Grid.RowDefinitions>
                 <Grid>
-                    <Border VerticalAlignment="Center" HorizontalAlignment="Right" Background="#FF2B2B2B" Margin="10 0 40 0" Padding="6 4" CornerRadius="3">
+                    <!--<Border VerticalAlignment="Center" HorizontalAlignment="Right" Background="#FF2B2B2B" Margin="10 0 40 0" Padding="6 4" CornerRadius="3">
                         <TextBlock Text="Close" Foreground="#FF9B9B9B"/>
-                    </Border>
-                    <Button Width="32" HorizontalAlignment="Right" Style="{StaticResource ButtonStyle1}" Foreground="White" 
+                    </Border>-->
+                    <Button Width="32" HorizontalAlignment="Right" Style="{StaticResource ButtonStyle1}" Foreground="Black" 
                             Command="{Binding GoHome}">
                         <TextBlock FontSize="28" VerticalAlignment="Center" FontWeight="Light" Margin="0 -3 0 0 ">
                             ×
                         </TextBlock>
                     </Button>
                 </Grid>
-                <TextBlock Grid.Row="1" VerticalAlignment="Bottom" FontSize="20" Foreground="White" Margin="5 0">
-                    Servers
+                <TextBlock Grid.Row="1" VerticalAlignment="Bottom" FontSize="40" Foreground="Black" Margin="5 0">
+                    Server List
                 </TextBlock>
                 <ListView Grid.Row="2" Background="Transparent" BorderThickness="0" x:Name="lv" SelectionMode="Single" ItemsSource="{Binding ServerList}">
                     <ListView.Resources>
@@ -91,8 +91,8 @@
                                         <RowDefinition />
                                     </Grid.RowDefinitions>
                                     <Ellipse  Fill="{Binding timeout,Converter={StaticResource TimeOut2Color}}" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="6" Height="6"/>
-                                    <TextBlock Grid.Column="1" Text="{Binding Name}" Foreground="White" FontSize="18" VerticalAlignment="Bottom" Padding="10,0,0,0"/>
-                                    <TextBlock Grid.Column="1" Grid.Row="1" Text="2.6.0" Foreground="Gray" Padding="10,0,0,0" VerticalAlignment="Center"/>
+                                    <TextBlock Grid.Column="1" Text="{Binding Name}" Foreground="Black" FontSize="18" VerticalAlignment="Bottom" Padding="10,0,0,0"/>
+                                    <TextBlock Grid.Column="1" Grid.Row="1" Text="{Binding ver}" Foreground="Gray" Padding="10,0,0,0" VerticalAlignment="Center"/>
                                     <StackPanel x:Name="playerCount" Grid.RowSpan="2" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Right"
                                             Orientation="Horizontal">
                                         <TextBlock Text="{Binding players}" Foreground="Gray" FontSize="12" VerticalAlignment="Center"/>
@@ -110,7 +110,7 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-                <Button Background="#FF2B2B2B" BorderThickness="0" Grid.Row="3" x:Name="addBtn" Style="{DynamicResource ButtonStyle2}" 
+                <Button Background="#677eff" BorderThickness="0" Grid.Row="3" x:Name="addBtn" Style="{DynamicResource ButtonStyle2}" 
                         FontSize="22" Foreground="White" Click="addBtn_Click">
                     + Add a Server
                 </Button>

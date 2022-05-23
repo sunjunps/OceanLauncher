@@ -145,7 +145,8 @@ namespace OceanLauncher
 
         private void btn_Click(object sender, RoutedEventArgs e)
         {
-            
+            var btn = sender as Button;
+            btn.IsEnabled = false;
             if(GlobalProps.controller == null)
             {
                 GlobalProps.controller = new GenshinImpact_Lanucher.Utils.ProxyController(cfg.Port, vm.ServerInfo.IP);
@@ -159,6 +160,7 @@ namespace OceanLauncher
 
                 btnText.Text = "终止代理";
                 btnIcon.Text = "\xe71a";
+
             }
             else
             {
@@ -169,6 +171,8 @@ namespace OceanLauncher
                 btnIcon.Text = "\xe768";
 
             }
+            btn.IsEnabled = true;
+
 
         }
 
@@ -203,6 +207,24 @@ namespace OceanLauncher
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
             Process.Start("https://github.com/SwetyCore/OceanLauncher");
+
+        }
+
+        private void Button_Click_5(object sender, RoutedEventArgs e)
+        {
+            Process.Start("https://yuina.cn/yuiserver/");
+
+        }
+
+        private void Button_Click_6(object sender, RoutedEventArgs e)
+        {
+            Process.Start("https://jq.qq.com/?_wv=1027&k=tzihvqr6");
+
+        }
+
+        private void Button_Click_7(object sender, RoutedEventArgs e)
+        {
+            Process.Start("https://github.com/qinastar/YuiServer");
 
         }
     }
