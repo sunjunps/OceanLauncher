@@ -91,13 +91,13 @@
                         <RowDefinition Height="auto"/>
                         <RowDefinition />
                     </Grid.RowDefinitions>
-                    <StackPanel Orientation="Horizontal"  Margin="35 20 10 20">
+                    <StackPanel Orientation="Horizontal"  Margin="35 0 10 20">
                         <Border Padding="5" BorderThickness="0" BorderBrush="Gray" CornerRadius="16" Height="300">
                             <Grid>
 
                                 <Border CornerRadius="12" Width="500" >
                                     <Border.Background>
-                                        <ImageBrush ImageSource="Resources/cover.jpg" Stretch="UniformToFill"/>
+                                        <ImageBrush ImageSource="https://yuina.cn/cdn/yuiserver/s1.png" Stretch="UniformToFill"/>
                                     </Border.Background>
                                 </Border>
                                 <Border CornerRadius="12">
@@ -110,65 +110,98 @@
                                     </Border.Background>
 
                                 </Border>
-                                <Label Content=" 一个非盈利的服务器，进入服务器不要要付钱哦，如果你已经付钱请立即退款举报！" VerticalAlignment="Bottom"
+                                <StackPanel VerticalAlignment="Bottom">
+                                    <Label VerticalAlignment="Bottom" FontSize="50" FontWeight="Bold"
+                                       Foreground="White">欢迎来到
+                                    </Label>
+                                    <Label VerticalAlignment="Bottom" FontSize="50" FontWeight="Bold"
+                                       Foreground="White">YUISERVER
+                                    </Label>
+                                    <Label Content=" 一个非盈利的服务器，进入服务器不要要付钱哦，如果你已经付钱请立即退款举报！" VerticalAlignment="Bottom"
                                        Foreground="White"></Label>
+                                </StackPanel>
                             </Grid>
                         </Border>
 
                     </StackPanel>
-                    <Border  Grid.Column="1" Margin="10 20" VerticalAlignment="Top" CornerRadius="20" Background="#fdfdff" Padding="10 15">
-                        <StackPanel x:Name="stackPanel" Margin="10 0">
-                            <Grid >
+                    
+                    <StackPanel Grid.Column="1" Grid.RowSpan="2">
+                        <Border  Grid.Column="1" Margin="10 0 30 0" VerticalAlignment="Top" CornerRadius="20" Background="#fdfdff" Padding="10 15">
+                            <StackPanel x:Name="stackPanel" Margin="10 0">
+                                <Grid >
 
-                                <TextBlock FontSize="20" FontWeight="Light" Text="服务器状态:" Margin="0 0 0 20"/>
-                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                    <TextBlock FontSize="20" FontWeight="Light" Text="服务器状态:" Margin="0 0 0 20"/>
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
 
-                                    <Button FontFamily="{StaticResource icon}" Style="{StaticResource ButtonStyle1}" FontSize="14" Padding="15" 
+                                        <Button FontFamily="{StaticResource icon}" Style="{StaticResource ButtonStyle1}" FontSize="14" Padding="15" 
                                     Margin="5 0" Content="&#xe8fd;" Background="Transparent" BorderThickness="0"
                                     Foreground="Black" Command="{Binding OpenServerList}"/>
 
-                                    <Button x:Name="button" FontFamily="{StaticResource icon}" Style="{StaticResource ButtonStyle1}" FontSize="14" Padding="15" 
+                                        <Button x:Name="button" FontFamily="{StaticResource icon}" Style="{StaticResource ButtonStyle1}" FontSize="14" Padding="15" 
                                     Margin="5 0" Content="&#xe72c;" Background="Transparent" BorderThickness="0"
                                     Foreground="Black" Click="Button_Click_3"/>
 
-                                </StackPanel>
-                            </Grid>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="{Binding ServerInfo.Name}" FontWeight="Bold"    FontSize="44" Foreground="Black"/>
+                                    </StackPanel>
+                                </Grid>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding ServerInfo.Name}" FontWeight="Bold"    FontSize="44" Foreground="Black"/>
 
-                            </StackPanel>
-                            <Grid Margin="0 20">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition/>
-                                    <ColumnDefinition/>
-                                    <ColumnDefinition/>
-                                </Grid.ColumnDefinitions>
-                                <TextBlock Foreground="Gray" FontSize="14">
+                                </StackPanel>
+                                <Grid Margin="0 20">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Foreground="Gray" FontSize="14">
                                 Players
-                                </TextBlock>
-                                <TextBlock Foreground="Black" FontSize="20" Margin="0 10" Grid.Row="1" Text="{Binding ServerInfo.players}"/>
-                                <TextBlock Foreground="Gray" FontSize="14" Grid.Column="1">Server
-                                </TextBlock>
-                                <TextBlock Foreground="Black" FontSize="20" Margin="0 10" Grid.Row="1" Grid.Column="1"  Text="{Binding ServerInfo.ver}"/>
-                                <TextBlock Foreground="Gray" FontSize="14" Grid.Column="2">
+                                    </TextBlock>
+                                    <TextBlock Foreground="Black" FontSize="20" Margin="0 10" Grid.Row="1" Text="{Binding ServerInfo.players}"/>
+                                    <TextBlock Foreground="Gray" FontSize="14" Grid.Column="1">Server
+                                    </TextBlock>
+                                    <TextBlock Foreground="Black" FontSize="20" Margin="0 10" Grid.Row="1" Grid.Column="1"  Text="{Binding ServerInfo.ver}"/>
+                                    <TextBlock Foreground="Gray" FontSize="14" Grid.Column="2">
                                 Ping
-                                </TextBlock>
-                                <StackPanel Grid.Row="1" Grid.Column="2">
-                                    <TextBlock Foreground="{Binding ServerInfo.timeout,Converter={StaticResource TimeOut2Color}}" FontSize="20" Margin="0 10" >
+                                    </TextBlock>
+                                    <StackPanel Grid.Row="1" Grid.Column="2">
+                                        <TextBlock Foreground="{Binding ServerInfo.timeout,Converter={StaticResource TimeOut2Color}}" FontSize="20" Margin="0 10" >
                                 <Run FontFamily="{StaticResource icon}" Text="&#xe908;"/>
                                 <Run Text="{Binding  ServerInfo.timeout}"/>
                                 <Run Text="ms"/>
-                                    </TextBlock>
-                                </StackPanel>
-                            </Grid>
-                        </StackPanel>
+                                        </TextBlock>
+                                    </StackPanel>
+                                </Grid>
+                            </StackPanel>
 
-                    </Border>
-                    <Border Grid.Row="1" Background="#fdfdff" Margin="35 20 10 60" Padding="10" CornerRadius="20">
+                        </Border>
+
+
+                        <Border  Grid.Column="1" Margin="10 20 30 0" VerticalAlignment="Top" CornerRadius="20" Background="#fdfdff" Padding="10 15" Height="140">
+                            <StackPanel Margin="10 0">
+                                <Grid Height="30">
+
+                                    <TextBlock FontSize="20" FontWeight="Light" Text="UPDATE&amp;公告:" Margin="0 0 0 0"/>
+
+                                    <Button  Width="45" HorizontalAlignment="Right" FontFamily="{StaticResource icon}" Style="{StaticResource ButtonStyle1}" VerticalAlignment="Center" Height="60" FontSize="14" Padding="15" 
+                                    Margin="5 0" Content="&#xe72c;" Background="Transparent" BorderThickness="0"
+                                    Foreground="Black" Click="Button_Click_3"/>
+
+                                </Grid>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="公告测试" FontWeight="Bold"    FontSize="14" Foreground="Black"/>
+
+                                </StackPanel>
+                            </StackPanel>
+
+                        </Border>
+
+                    </StackPanel>
+
+                    <Border Grid.Row="1" Background="#fdfdff" Margin="35 20 10 60" Padding="10" CornerRadius="20" Height="120">
                         <StackPanel>
                             <TextBlock Margin="10,0,20,0" FontSize="20" FontWeight="Light" Foreground="Gray">相关链接：</TextBlock>
                             <StackPanel Orientation="Horizontal" Margin="5">
@@ -178,7 +211,7 @@
                                             <ImageBrush ImageSource="Resources/logo.png"/>
                                         </Border.Background>
                                     </Border>
-                                    
+
                                 </Button>
 
                                 <Button  Margin="10 0"  Style="{StaticResource ButtonStyle1}" Height="64" Width="64" Click="Button_Click_6">
@@ -202,6 +235,7 @@
                         </StackPanel>
                     </Border>
 
+
                     <Button Background="Transparent" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 0 60 40" BorderThickness="0" Grid.Row="1" Grid.Column="1" Height="64" Width="180"
                             Style="{StaticResource ButtonStyle1}" Cursor="Hand" Padding="-2" Name="btn" Click="btn_Click">
                         <Border CornerRadius="0"  Background="#677eff" 
@@ -219,6 +253,8 @@
                     </Button>
 
                 </Grid>
+
+
 
             </Grid>
 
