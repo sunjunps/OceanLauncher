@@ -51,16 +51,11 @@
                                         <ImageBrush ImageSource="Resources/logo.png"/>
                                     </Border.Background>
                                 </Border>
-                                <TextBlock Text="YuiServer " FontSize="24" FontWeight="Bold" VerticalAlignment="Center">
+                                <TextBlock Text="Ocean " FontSize="24" FontWeight="Bold" VerticalAlignment="Center">
                                     <TextBlock.Foreground>
                                         <LinearGradientBrush EndPoint="1,0" StartPoint="0,1">
-                                            <GradientStop Color="#FFFE869F" Offset="0.176"/>
-                                            <GradientStop Color="#FFFFA745"/>
-                                            <GradientStop Color="#FFA083ED" Offset="0.385"/>
-                                            <GradientStop Color="#FF43AEFF" Offset="0.619"/>
-                                            <GradientStop Color="#FFFE869F" Offset="0.828"/>
-                                            <GradientStop Color="#FFFFA745" Offset="1"/>
-                                            <GradientStop Color="#FF47ABFE" Offset="0.603"/>
+                                            <GradientStop Color="#FF9B1E64" Offset="0.2"/>
+                                            <GradientStop Color="#FFEE3F4D"/>
                                         </LinearGradientBrush>
                                     </TextBlock.Foreground>
 
@@ -97,7 +92,7 @@
 
                                 <Border CornerRadius="12" Width="500" >
                                     <Border.Background>
-                                        <ImageBrush ImageSource="https://yuina.cn/cdn/yuiserver/s1.png" Stretch="UniformToFill"/>
+                                        <ImageBrush ImageSource="Resources/cover.jpg" Stretch="UniformToFill"/>
                                     </Border.Background>
                                 </Border>
                                 <Border CornerRadius="12">
@@ -110,7 +105,7 @@
                                     </Border.Background>
 
                                 </Border>
-                                <StackPanel VerticalAlignment="Bottom">
+                                <StackPanel VerticalAlignment="Bottom" Visibility="Hidden">
                                     <Label VerticalAlignment="Bottom" FontSize="50" FontWeight="Bold"
                                        Foreground="White">欢迎来到
                                     </Label>

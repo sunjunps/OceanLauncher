@@ -212,19 +212,19 @@ namespace OceanLauncher
 
         private void Button_Click_5(object sender, RoutedEventArgs e)
         {
-            Process.Start("https://yuina.cn/yuiserver/");
+            Process.Start("https://github.com/SwetyCore/OceanLauncher");
 
         }
 
         private void Button_Click_6(object sender, RoutedEventArgs e)
         {
-            Process.Start("https://jq.qq.com/?_wv=1027&k=tzihvqr6");
+            Process.Start("https://github.com/SwetyCore/OceanLauncher");
 
         }
 
         private void Button_Click_7(object sender, RoutedEventArgs e)
         {
-            Process.Start("https://github.com/qinastar/YuiServer");
+            Process.Start("https://github.com/SwetyCore/OceanLauncher");
 
         }
     }
