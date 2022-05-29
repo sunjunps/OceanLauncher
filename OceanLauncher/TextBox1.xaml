@@ -5,8 +5,7 @@
     <SolidColorBrush x:Key="TextBox.Focus.Border" Color="#FF569DE5"/>
     <Style x:Key="TextBoxStyle1" TargetType="{x:Type TextBox}">
         <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
-        <Setter Property="BorderBrush" Value="{StaticResource TextBox.Static.Border}"/>
-        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Foreground" Value="Black"/>
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
         <Setter Property="HorizontalContentAlignment" Value="Left"/>
@@ -17,7 +16,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type TextBox}">
-                    <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="10" BorderThickness="{TemplateBinding BorderThickness}" Background="#FF2F2F2F" SnapsToDevicePixels="True">
+                    <Border x:Name="border" BorderBrush="Transparent" CornerRadius="10" BorderThickness="{TemplateBinding BorderThickness}" Background="#0C000000" SnapsToDevicePixels="True">
                         <ScrollViewer x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
                     </Border>
                     <ControlTemplate.Triggers>
