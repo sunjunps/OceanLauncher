@@ -230,6 +230,9 @@ namespace OceanLauncher
 
     }
 
-
+    public class LauncherCFG
+    {
+        
+    }
 
 }

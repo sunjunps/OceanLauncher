@@ -50,8 +50,13 @@
                                 <TextBlock Text="Ocean " FontSize="24" FontWeight="Bold">
                                     <TextBlock.Foreground>
                                         <LinearGradientBrush EndPoint="1,0" StartPoint="0,1">
-                                            <GradientStop Color="#FF9B1E64" Offset="0.2"/>
-                                            <GradientStop Color="#FFEE3F4D"/>
+                                            <GradientStop Color="#FFFE869F" Offset="0.176"/>
+                                            <GradientStop Color="#FFFFA745"/>
+                                            <GradientStop Color="#FFA083ED" Offset="0.385"/>
+                                            <GradientStop Color="#FF43AEFF" Offset="0.619"/>
+                                            <GradientStop Color="#FFFE869F" Offset="0.828"/>
+                                            <GradientStop Color="#FFFFA745" Offset="1"/>
+                                            <GradientStop Color="#FF47ABFE" Offset="0.603"/>
                                         </LinearGradientBrush>
                                     </TextBlock.Foreground>
 
@@ -101,6 +106,16 @@
                                     </Border.Background>
 
                                 </Border>
+                                <StackPanel VerticalAlignment="Bottom">
+                                    <Label VerticalAlignment="Bottom" FontSize="50" FontWeight="Bold"
+                                       Foreground="White">欢迎来到
+                                    </Label>
+                                    <Label VerticalAlignment="Bottom" FontSize="50" FontWeight="Bold"
+                                       Foreground="White">YUISERVER
+                                    </Label>
+                                    <Label Content=" 一个非盈利的服务器，进入服务器不要要付钱哦，如果你已经付钱请立即退款举报！" VerticalAlignment="Bottom"
+                                       Foreground="White"></Label>
+                                </StackPanel>
                             </Grid>
                         </Border>
 
