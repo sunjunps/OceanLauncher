@@ -1,8 +1,10 @@
 ﻿using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.Input;
 using Newtonsoft.Json;
+using OceanLauncher.Utils;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,7 +16,6 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 using WpfWidgetDesktop.Utils;
 
 namespace OceanLauncher.Pages
@@ -31,8 +32,9 @@ namespace OceanLauncher.Pages
              public string Height = "1080";
              public string Width = "1920";
              public string Port = "1145";
-             public string Path = @"C:\Program Files\Genshin Impact\Genshin Impact Game\YuanShen.exe";
-             public string Args = "";
+             //public string Path = @"C:\Program Files\Genshin Impact\Genshin Impact Game\YuanShen.exe";
+             public string Path="";
+            public string Args = "";
         }
 
 
@@ -131,6 +133,37 @@ namespace OceanLauncher.Pages
             SettingProvider.Set(id, vm);
 
             GlobalProps.frame.Navigate(new Home()); 
+        }
+
+        private void SearchPath(object sender, RoutedEventArgs e)
+        {
+            string gpath="";
+            try
+            {
+                gpath = GameRegReader.GetGamePath();
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("自动搜索失败，请手动指定 YuanShen.exe 所在位置！");
+
+                return;
+                throw;
+            }
+            string cn = Path.Combine(gpath, "YuanShen.exe");
+            string os = Path.Combine(gpath, "Genshin.exe");
+            if (File.Exists(cn))
+            {
+                vm.Path = cn;
+            }
+            else if (File.Exists(os))
+            {
+                vm.Path = os;
+            }
+            else
+            {
+                MessageBox.Show("自动搜索失败，请手动指定 YuanShen.exe 所在位置！");
+            }
         }
     }
 }

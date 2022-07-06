@@ -6,8 +6,6 @@
         xmlns:local="clr-namespace:OceanLauncher"
         mc:Ignorable="d" WindowStyle="None"
         ResizeMode="NoResize"
-        Background="Transparent"
-        AllowsTransparency="True"
         MouseLeftButtonDown="Window_MouseLeftButtonDown"
         Title="Ocean Launcher" Height="600" Width="1000">
     <Window.Resources>
@@ -27,10 +25,7 @@
     <Window.Triggers>
         <EventTrigger RoutedEvent="FrameworkElement.Loaded"/>
     </Window.Triggers>
-    <Border  Background="#f8f8ff" Margin="2" CornerRadius="10">
-        <Border.Effect>
-            <DropShadowEffect Opacity="0.4" RenderingBias="Performance" BlurRadius="5" Color="#FF818181" Direction="0" ShadowDepth="0"/>
-        </Border.Effect>
+    <Border  Background="#f8f8ff">
         <Grid>
 
             <Grid>

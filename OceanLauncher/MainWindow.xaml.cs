@@ -14,6 +14,7 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Interop;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
@@ -35,10 +36,18 @@ namespace OceanLauncher
         {
             InitializeComponent();
             this.DataContext = vm;
+
+
+            IntPtr hWnd = new WindowInteropHelper(GetWindow(this)).EnsureHandle();
+            //MyWindowStyle.EnableBlur(hWnd);
+            MyWindowStyle.EnableRoundWindow(hWnd);
+
+
             GlobalProps.NavigateTo = this.NavigateTo;
             GlobalProps.frame = frame;
 
             GlobalProps.SetServer = SetServer;
+
 
             LoadDataAsync();
 

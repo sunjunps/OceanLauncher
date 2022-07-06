@@ -61,9 +61,22 @@
                         </Style>
                     </StackPanel.Resources>
                     <Label>游戏路径</Label>
-                    <TextBox FontSize="24" Style="{DynamicResource TextBoxStyle1}"  Padding="5" BorderThickness="2" Text="{Binding Path}">
 
-                    </TextBox>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBox FontSize="24" Style="{DynamicResource TextBoxStyle1}"  Padding="5" BorderThickness="2" Text="{Binding Path}">
+                    
+                        </TextBox>
+                        <Button BorderThickness="0" Background="#677eff" Margin="10 0" Padding="15"
+                                Foreground="White" Grid.Column="1" Style="{DynamicResource ButtonStyle2}"
+                                Click="SearchPath"
+                                >
+                            自动搜索
+                        </Button>
+                    </Grid>
                     <Label>窗口大小</Label>
                     <Grid >
                         <Grid.ColumnDefinitions>
